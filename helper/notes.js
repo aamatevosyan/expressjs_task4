@@ -48,7 +48,7 @@ class Notes {
             throw new Error("Not valid id");
         }
         
-        return note.noteText;
+        return note;
     }
 
     async getAll() {

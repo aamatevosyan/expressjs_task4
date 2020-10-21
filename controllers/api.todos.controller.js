@@ -1,5 +1,5 @@
 const asyncWrapper = require("../middleware/asyncWrapper");
-const Notes = require("../core/notes");
+const Notes = require("../helper/notes");
 
 const notes = new Notes(process.env.MONGO_DB_URL);
 
@@ -20,7 +20,7 @@ module.exports.addNote = asyncWrapper(async (req, res) => {
 });
 
 module.exports.editNote = asyncWrapper(async (req, res) => {
-    notes.edit(req.params.id, req.body.noteText);
+    await notes.edit(req.params.id, req.body.noteText);
 
     res.status(200).json({
         success: true
@@ -28,7 +28,7 @@ module.exports.editNote = asyncWrapper(async (req, res) => {
 });
 
 module.exports.deleteNote = asyncWrapper(async (req, res) => {
-    notes.delete(req.params.id);
+    await notes.delete(req.params.id);
 
     res.status(200).json({
         success: true

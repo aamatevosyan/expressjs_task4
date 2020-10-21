@@ -1,6 +1,6 @@
 const {Router} = require('express');
 const router = Router();
-const Notes = require('../core/notes');
+const Notes = require('../helper/notes');
 const { validate, ValidationError, Joi } = require('express-validation')
 const asyncWrapper = require('../middleware/asyncWrapper');
 
